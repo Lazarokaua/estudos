@@ -1,14 +1,14 @@
 Algoritmo "escola"
 
 Var
-user, password, nome:caractere
+user, password, nome, cont:caractere
 aluno, situacao: caractere
 n1,n2,media:real
-tentativas, menu: inteiro
+tentativas, menu, prox: inteiro
  matriculaDoAluno, dataNascimento, turma: inteiro
 Inicio
 repita
-      escreva("Digite o seu usu·rio: ")
+      escreva("Digite o seu usu√°rio: ")
       leia(user)
       escreval
       escreva("Digite a sua senha: ")
@@ -26,24 +26,37 @@ enquanto (user <> "admin") ou (password <> "admin") faca
       fimalgoritmo
       fimse
       
-      escreval("Credenciais incorretas, vocÍ possui ainda", 3 - tentativas," tentativas")
+      escreval("Credenciais incorretas, voc√™ possui ainda", 3 - tentativas," tentativas")
       
-      escreva("Digite o seu usu·rio: ")
+      escreva("Digite o seu usu√°rio: ")
       leia(user)
       escreval
       escreva("Digite a sua senha: ")
       leia(password)
 fimenquanto
 
-escreval(user,", seja bem-vindo ao sistema de Gestao Escolar")
-escreval
-escreval("Digite 1 para Cadastrar o aluno: ")
-escreval
-escreval("Digite 2 para LanÁamento de Notas: ")
-escreval
-escreval("Digite 3 para relatÛrio: ")
-escreval
+escreva("deseja continuar? caso queira digite 'S', sen√£o digite 'N'")
+leia(cont)
 
+ se (cont="n") ou (cont="N") entao
+ fimalgoritmo
+ fimse
+
+
+
+ enquanto (cont="s") ou (cont="S") faca
+
+            escreval(user,", seja bem-vindo ao sistema de Gestao Escolar")
+            escreval
+            escreval("Digite 1 para Cadastrar o aluno: ")
+            escreval
+            escreval("Digite 2 para Lan√ßamento de Notas: ")
+            escreval
+            escreval("Digite 3 para relat√≥rio: ")
+            escreval
+
+
+            
 leia(menu)
 escolha (menu)
 caso 1
@@ -51,19 +64,40 @@ caso 1
       escreval
       escreva("Nome do Aluno(a): ")
       leia(nome)
-      escreva("MatrÌcula: ")
+      escreva("Matr√≠cula: ")
       leia(matriculaDoAluno)
       escreva("Data de nascimento: ")
       leia(dataNascimento)
       escreva("Turma: ")
       leia(turma)
+      
+
+limpatela
 
 caso 2
-      escreval("LanÁamento de Notas")
-      escreval("Digite a 1∫ nota do aluno(a): ")
+      escreval("Lan√ßamento de Notas")
+      escreval("Digite a 1¬∫ nota do aluno(a): ")
       leia(n1)
-      escreva("Digite a 2∫ nota do aluno(a): ")
+      
+              enquanto (n1> 10) ou (n1 < 0) faca
+      escreval ("Digite uma nota entre 0 e 10!")
+      escreva ("Digite a Nota 1")
+          leia (n1)
+      fimenquanto
+      
+      
+      
+      
+      
+      escreva("Digite a 2¬∫ nota do aluno(a): ")
       leia(n2)
+      
+      enquanto (n2> 10) ou (n2 < 0) faca
+      escreval ("Digite uma nota entre 0 e 10!")
+      escreva ("Digite a Nota 2: ")
+          leia (n2)
+      fimenquanto
+      
       
        media <- (n1+n2)/2
 
@@ -72,52 +106,34 @@ caso 2
 
       senao
       se (media<=5) entao
-      situacao <- "RecuperaÁ„o"
+      situacao <- "Recupera√ß√£o"
 
       senao
       situacao <- "Reprovado"
       fimse
            fimse
+           escreval
+           escreva("Sua m√©dia ", media, " sua situa√ß√£o ", situacao)
+           escreval
 outrocaso
-      escreval("relatÛrio")
-      escreval("Aluno(a): ",aluno)
-      escreval("MÈdia: ",media)
-      escreval("SituaÁ„o: ",situacao)
+      escreval("relat√≥rio")
+      escreval("Aluno(a): ",nome)
+      escreval("M√©dia: ",media)
+      escreval("Situa√ß√£o: ",situacao)
 fimescolha
 
 
-// limpatela
-//escreva("============= MÈdia ============")
-//escreval
-//escreva("Digite o nome do aluno(a): ")
-//leia(aluno)
-//escreval
-//   escreva("Digite a 1∫ nota do aluno(a): ")
-//   leia(n1)
-//   escreval
-//   escreva("Digite a 2∫ nota do aluno(a): ")
-//   leia(n2)
-//   escreval
-   
-//      media <- (n1+n2)/2
 
-//      se (media>=7) entao
-//      situacao <- "Aprovado"
 
-//      senao
-//      se (media<=5) entao
-//      situacao <- "RecuperaÁ„o"
-//
-//      senao
-//      situacao <- "Reprovado"
-//      fimse
-//           fimse
+escreva("deseja retornar ao menu?caso queira digite 'S', sen√£o digite 'N'")
+leia(cont)
 
-//limpatela
-//escreval("============= Resultado  ============")
-//escreval
-//escreval("Aluno(a): ",aluno)
-//escreval("SituaÁ„o: ",situacao)
+ se (cont="n") ou (cont="N") entao
+ fimalgoritmo
+ fimse
 
-ate menu =4
+
+
+fimenquanto
+ate (menu =4)
 Fimalgoritmo
